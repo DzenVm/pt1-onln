@@ -3,6 +3,8 @@ import "./globals.css";
 import { site } from "@/lib/site";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
+import JsonLd from "@/components/JsonLd";
+import { organizationLd, websiteLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${site.domain}`),
@@ -30,8 +32,28 @@ export const metadata: Metadata = {
       "Comparar campanhas, métodos de pagamento e regras de casino legal em Portugal. 18+.",
     url: `https://${site.domain}`,
   },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: "summary_large_image",
+    title: "Guia de casino online em Portugal",
+    description:
+      "Comparar campanhas, métodos de pagamento e regras de casino legal em Portugal. 18+.",
+  },
+  applicationName: site.name,
+  authors: [{ name: site.name }],
+  creator: site.name,
+  publisher: site.name,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   category: "reference",
+  formatDetection: { telephone: false, address: false, email: false },
 };
 
 export const viewport: Viewport = {
@@ -65,6 +87,8 @@ export default function RootLayout({
         <main id="conteudo">{children}</main>
         <Footer />
         <CookieConsent />
+        <JsonLd data={organizationLd} />
+        <JsonLd data={websiteLd} />
       </body>
     </html>
   );

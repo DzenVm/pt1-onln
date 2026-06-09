@@ -5,6 +5,7 @@ import { site, company } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Política de privacidade",
   description: "Como a Sortuga trata os seus dados pessoais.",
+  alternates: { canonical: "/privacidade" },
 };
 
 export default function Privacidade() {

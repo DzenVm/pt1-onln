@@ -5,6 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Política de cookies",
   description: "Que cookies a Sortuga utiliza e como controlá-los.",
+  alternates: { canonical: "/cookies" },
 };
 
 export default function Cookies() {

@@ -5,6 +5,7 @@ import { site, company } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Termos de utilização",
   description: "Condições de uso do site Sortuga.",
+  alternates: { canonical: "/termos" },
 };
 
 export default function Termos() {

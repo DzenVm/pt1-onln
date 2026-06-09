@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Jogo responsável",
   description:
     "Boas práticas, sinais de alerta e contactos de apoio para jogar de forma responsável em Portugal.",
+  alternates: { canonical: "/jogo-responsavel" },
 };
 
 export default function JogoResponsavel() {

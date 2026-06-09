@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { operators } from "@/lib/casinos";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "A nossa avaliação de casinos",
   description:
     "Comparação editorial de casinos online com licença SRIJ para Portugal: 888.pt e Betano.pt. 18+.",
+  alternates: { canonical: "/avaliacao" },
 };
 
 function Stars({ rating }: { rating: number }) {
@@ -21,6 +24,12 @@ function Stars({ rating }: { rating: number }) {
 export default function Avaliacao() {
   return (
     <section className="lz-sheet lz-sheet--narrow">
+      <JsonLd
+        data={breadcrumbLd([
+          { name: "Início", path: "/" },
+          { name: "Avaliação", path: "/avaliacao" },
+        ])}
+      />
       <div className="lz-wrap">
         <nav className="lz-crumb" aria-label="Trilho">
           <Link href="/">Início</Link> / Avaliação

@@ -5,6 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contacto",
   description: `Como falar com a equipa da ${site.name}.`,
+  alternates: { canonical: "/contacto" },
 };
 
 export default function Contacto() {

@@ -2,11 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 import heroImg from "@/public/hero-casino.png";
 import FeatureIcon from "@/components/FeatureIcon";
+import JsonLd from "@/components/JsonLd";
+import { faqLd } from "@/lib/seo";
 import { features, checklist, faq, habits } from "@/lib/casinos";
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={faqLd} />
       {/* ---------------- HERO ---------------- */}
       <section className="lz-hero" aria-labelledby="hero-h">
         <div className="lz-wrap">
@@ -37,6 +40,8 @@ export default function Home() {
                   src={heroImg}
                   alt="Ilustração de casino — fichas e cartas"
                   priority
+                  fetchPriority="high"
+                  placeholder="blur"
                   sizes="(max-width: 860px) 78vw, 480px"
                   style={{ height: "auto" }}
                 />
