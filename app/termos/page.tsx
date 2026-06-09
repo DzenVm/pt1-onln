@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Sheet from "@/components/Sheet";
-import { site } from "@/lib/site";
+import { site, company } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Termos de utilização",
@@ -37,6 +37,28 @@ export default function Termos() {
         operadores mudam. Verifique sempre os termos no site oficial antes de se
         registar ou depositar.
       </p>
+
+      <h2>Informação legal da empresa</h2>
+      <ul>
+        <li>
+          <strong>Denominação:</strong> {company.fullName}
+        </li>
+        <li>
+          <strong>Registo:</strong> {company.register}
+        </li>
+        <li>
+          <strong>KRS:</strong> {company.krs}
+        </li>
+        <li>
+          <strong>NIP:</strong> {company.nip}
+        </li>
+        <li>
+          <strong>REGON:</strong> {company.regon}
+        </li>
+        <li>
+          <strong>Sede:</strong> {company.address}
+        </li>
+      </ul>
     </Sheet>
   );
 }

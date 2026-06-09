@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Sheet from "@/components/Sheet";
-import { site } from "@/lib/site";
+import { site, company } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Política de privacidade",
@@ -15,6 +15,12 @@ export default function Privacidade() {
       intro="Esta política explica como tratamos dados quando visita o site, em conformidade com o RGPD."
       pills={["RGPD", "Cookies próprios"]}
     >
+      <h2>Responsável pelo tratamento</h2>
+      <p>
+        O responsável pelo tratamento dos dados é {company.fullName}, com sede em{" "}
+        {company.address} (KRS {company.krs}, NIP {company.nip}, REGON{" "}
+        {company.regon}).
+      </p>
       <h2>Que dados recolhemos</h2>
       <p>
         Recolhemos apenas dados técnicos mínimos (estatísticas de visita

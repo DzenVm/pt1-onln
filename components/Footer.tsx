@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { site, company } from "@/lib/site";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -83,8 +83,9 @@ export default function Footer() {
 
         <div className="lz-foot__legal">
           <p>
-            © {year} — {site.name}. Guia informativo independente. Todos os
-            direitos reservados.
+            © {year} — {site.name}, operado por {company.legalName}.{" "}
+            {company.address}. KRS {company.krs} · NIP {company.nip} · REGON{" "}
+            {company.regon}. Todos os direitos reservados.
           </p>
           <nav className="lz-foot__links" aria-label="Ligações do rodapé">
             <Link href="/sobre">Sobre</Link>
