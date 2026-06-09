@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { casinos } from "@/lib/casinos";
+import { operators } from "@/lib/casinos";
 
 export const metadata: Metadata = {
   title: "A nossa avaliação de casinos",
   description:
-    "Comparação editorial de casinos online com licença para Portugal: bónus, métodos e prazos de levantamento. 18+.",
+    "Comparação editorial de casinos online com licença SRIJ para Portugal: 888.pt e Betano.pt. 18+.",
 };
 
 function Stars({ rating }: { rating: number }) {
@@ -22,67 +22,65 @@ export default function Avaliacao() {
   return (
     <section className="lz-sheet lz-sheet--narrow">
       <div className="lz-wrap">
-        <p className="lz-eyebrow" style={{ display: "block", marginBottom: ".5rem" }}>
-          <Link href="/" style={{ color: "var(--gold)" }}>
-            Início
-          </Link>{" "}
-          / Avaliação
-        </p>
+        <nav className="lz-crumb" aria-label="Trilho">
+          <Link href="/">Início</Link> / Avaliação
+        </nav>
         <h1 className="lz-h1">A nossa avaliação de casinos</h1>
         <p className="lz-intro" style={{ maxWidth: "65ch" }}>
-          Comparação editorial e independente. Os valores abaixo são exemplos
-          ilustrativos com marcas fictícias — confirme sempre as condições reais,
-          a licença do SRIJ e os termos do bónus no site do operador antes de
-          jogar. Jogar a dinheiro implica perdas possíveis. <strong>18+.</strong>
+          Comparação editorial e independente de operadores com licença do SRIJ.
+          Não publicamos valores promocionais fixos: as campanhas mudam e têm
+          termos próprios. Confirme sempre a oferta, a licença e as condições no
+          site oficial antes de jogar. Jogar a dinheiro implica perdas possíveis.{" "}
+          <strong>18+.</strong>
         </p>
 
         <div className="lz-deck">
-          {casinos.map((c, i) => (
-            <article className="lz-cardx" key={c.id}>
+          {operators.map((o, i) => (
+            <article className="lz-cardx" key={o.slug}>
               <div className="lz-cardx__bar">
                 <span className="lz-cardx__rank">{i + 1}</span>
-                <span>Destaque editorial · licença consultável no SRIJ</span>
+                <span>{o.license}</span>
               </div>
               <div className="lz-cardx__body">
                 <div className="lz-cardx__brand">
-                  <span className="lz-cardx__logo" style={{ background: c.accent }}>
-                    {c.name.slice(0, 2)}
+                  <span className="lz-cardx__logo" style={{ background: o.accent }}>
+                    {o.name.slice(0, 3)}
                   </span>
-                  <span className="lz-cardx__name">{c.name}</span>
+                  <span className="lz-cardx__name">{o.name}</span>
                   <span className="lz-score">
-                    <span className="lz-score__num">{c.rating.toFixed(1)}</span>
-                    <Stars rating={c.rating} />
+                    <span className="lz-score__num">{o.rating.toFixed(1)}</span>
+                    <Stars rating={o.rating} />
                   </span>
                 </div>
                 <div className="lz-cardx__side">
                   <table className="lz-table">
                     <tbody>
                       <tr>
-                        <th>Bónus</th>
-                        <td>{c.bonus}</td>
+                        <th>Oferta</th>
+                        <td>{o.bonus}</td>
                       </tr>
                       <tr>
                         <th>Pagamentos</th>
-                        <td>{c.methods}</td>
+                        <td>{o.methods}</td>
                       </tr>
                       <tr>
                         <th>Levantamento</th>
-                        <td>{c.payout}</td>
+                        <td>{o.payout}</td>
                       </tr>
                       <tr>
                         <th>Catálogo</th>
-                        <td>{c.games}</td>
+                        <td>{o.games}</td>
                       </tr>
                       <tr>
-                        <th>Desde</th>
-                        <td>{c.established}</td>
+                        <th>Licença</th>
+                        <td>{o.license}</td>
                       </tr>
                     </tbody>
                   </table>
-                  <p className="lz-terms">{c.bonusNote} Aplicam-se termos. 18+.</p>
-                  <a className="lz-btn lz-btn--primary lz-btn--block" href={`/ir/${c.id}`}>
-                    Visitar o site oficial
-                  </a>
+                  <p className="lz-terms">{o.bonusNote} Aplicam-se termos. 18+.</p>
+                  <Link className="lz-btn lz-btn--primary lz-btn--block" href={`/ponte/${o.slug}`}>
+                    Ver oferta {o.name}
+                  </Link>
                 </div>
               </div>
             </article>
@@ -96,8 +94,8 @@ export default function Avaliacao() {
           condições dos operadores mudam.
         </div>
 
-        <p className="lz-intro">
-          <Link href="/" className="lz-prose" style={{ color: "var(--gold-light)" }}>
+        <p style={{ marginTop: "2rem" }}>
+          <Link href="/" style={{ color: "var(--gold-light)", fontWeight: 600 }}>
             ← Voltar ao guia
           </Link>
         </p>

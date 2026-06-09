@@ -1,57 +1,59 @@
 // Dados e conteúdo editorial do guia. Texto original, redigido para este site.
-// As marcas de casino são fictícias e servem apenas de exemplo.
 
-export type Casino = {
-  id: string;
+export type Operator = {
+  slug: string;
   name: string;
+  url: string; // site oficial do operador (domínio .pt licenciado)
   rating: number;
   bonus: string;
   bonusNote: string;
   payout: string;
   methods: string;
   games: string;
-  established: number;
+  license: string;
+  since: string;
   accent: string;
 };
 
-export const casinos: Casino[] = [
+// Operadores reais com licença do SRIJ para Portugal.
+// Nota: não publicamos valores promocionais fixos — as campanhas mudam com
+// frequência e têm termos próprios. Confirme sempre a oferta no site oficial.
+export const operators: Operator[] = [
   {
-    id: "lumora",
-    name: "Lumora",
-    rating: 4.9,
-    bonus: "100% até 200€ + 50 giros",
-    bonusNote: "Rollover 35x · 30 dias · giros em jogos selecionados.",
-    payout: "1–2 dias úteis",
-    methods: "MB Way · Multibanco · Visa",
-    games: "+2400 slots, mesas e live",
-    established: 2021,
+    slug: "888",
+    name: "888 Casino",
+    url: "https://www.888.pt/",
+    rating: 4.7,
+    bonus: "Oferta de boas-vindas para novos registos",
+    bonusNote:
+      "Valor e condições definidos no site oficial e sujeitos a rollover e verificação.",
+    payout: "Geralmente 1–3 dias úteis",
+    methods: "MB Way · Multibanco · Visa · Mastercard",
+    games: "Slots, roleta, blackjack e casino ao vivo",
+    license: "Licença SRIJ (domínio 888.pt)",
+    since: "desde 2016",
     accent: "#2d9f78",
   },
   {
-    id: "vela-dourada",
-    name: "Vela Dourada",
-    rating: 4.7,
-    bonus: "Até 150€ sem rollover",
-    bonusNote: "Primeiro depósito sem requisito de aposta · 14 dias.",
-    payout: "Até 24 horas",
-    methods: "MB Way · Multibanco · Transferência",
-    games: "+1800 slots e live em português",
-    established: 2019,
+    slug: "betano",
+    name: "Betano",
+    url: "https://www.betano.pt/",
+    rating: 4.6,
+    bonus: "Promoção de registo de casino",
+    bonusNote:
+      "Consulte o valor atual e os termos completos no site oficial antes de aceitar.",
+    payout: "Geralmente 24–48 horas",
+    methods: "MB Way · Multibanco · Transferência bancária",
+    games: "Casino, slots e live (também desporto na mesma marca)",
+    license: "Licença SRIJ (domínio betano.pt)",
+    since: "desde 2017",
     accent: "#c9a44c",
   },
-  {
-    id: "atlantica",
-    name: "Atlântica",
-    rating: 4.5,
-    bonus: "120% até 250€",
-    bonusNote: "Rollover 40x · contribuição variável por jogo.",
-    payout: "1–3 dias úteis",
-    methods: "Multibanco · Visa · Mastercard",
-    games: "Slots, roleta, blackjack, torneios",
-    established: 2020,
-    accent: "#1f6b52",
-  },
 ];
+
+export function getOperator(slug: string) {
+  return operators.find((o) => o.slug === slug);
+}
 
 export const features = [
   {
