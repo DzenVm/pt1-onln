@@ -1,5 +1,6 @@
 import Link from "next/link";
-import HeroArt from "@/components/HeroArt";
+import Image from "next/image";
+import heroImg from "@/public/hero-casino.png";
 import FeatureIcon from "@/components/FeatureIcon";
 import { features, checklist, faq, habits } from "@/lib/casinos";
 
@@ -31,7 +32,14 @@ export default function Home() {
                 </p>
               </header>
               <div className="lz-hero-visual">
-                <HeroArt />
+                <Image
+                  className="lz-hero-art"
+                  src={heroImg}
+                  alt="Ilustração de casino — fichas e cartas"
+                  priority
+                  sizes="(max-width: 860px) 78vw, 480px"
+                  style={{ height: "auto" }}
+                />
               </div>
             </div>
           </div>
