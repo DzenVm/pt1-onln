@@ -11,12 +11,3 @@ export const site = {
     "métodos de pagamento e jogo responsável de forma clara e honesta.",
   legalAge: 18,
 } as const;
-
-export const nav = [
-  { href: "/#casinos", label: "Casinos" },
-  { href: "/#bonus", label: "Bónus" },
-  { href: "/#jogos", label: "Jogos" },
-  { href: "/#pagamentos", label: "Pagamentos" },
-  { href: "/#faq", label: "FAQ" },
-  { href: "/jogo-responsavel", label: "Jogo responsável" },
-] as const;

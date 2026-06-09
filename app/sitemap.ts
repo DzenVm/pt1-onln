@@ -4,11 +4,19 @@ import { site } from "@/lib/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = `https://${site.domain}`;
   const now = new Date();
-  return [
-    { url: `${base}/`, lastModified: now, priority: 1 },
-    { url: `${base}/jogo-responsavel`, lastModified: now, priority: 0.8 },
-    { url: `${base}/sobre`, lastModified: now, priority: 0.5 },
-    { url: `${base}/privacidade`, lastModified: now, priority: 0.3 },
-    { url: `${base}/cookies`, lastModified: now, priority: 0.3 },
-  ];
+  const paths = [
+    ["/", 1],
+    ["/avaliacao", 0.9],
+    ["/jogo-responsavel", 0.8],
+    ["/sobre", 0.5],
+    ["/contacto", 0.5],
+    ["/termos", 0.3],
+    ["/privacidade", 0.3],
+    ["/cookies", 0.3],
+  ] as const;
+  return paths.map(([path, priority]) => ({
+    url: `${base}${path}`,
+    lastModified: now,
+    priority,
+  }));
 }

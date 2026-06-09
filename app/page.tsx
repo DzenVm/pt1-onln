@@ -1,210 +1,156 @@
 import Link from "next/link";
-import CasinoCard from "@/components/CasinoCard";
-import {
-  casinos,
-  gameTypes,
-  payments,
-  criteria,
-  faq,
-} from "@/lib/casinos";
-import { site } from "@/lib/site";
+import HeroArt from "@/components/HeroArt";
+import FeatureIcon from "@/components/FeatureIcon";
+import { features, checklist, faq, habits } from "@/lib/casinos";
 
 export default function Home() {
   return (
     <>
       {/* ---------------- HERO ---------------- */}
-      <section className="hero container">
-        <div className="hero-grid">
-          <div>
-            <span className="eyebrow">Casinos online em Portugal · 2026</span>
-            <h1>Escolha o casino online certo, sem perder tempo.</h1>
-            <p className="lead">
-              A {site.name} compara operadores licenciados, analisa bónus reais e
-              testa a rapidez dos pagamentos — para que jogue com confiança e
-              responsabilidade.
-            </p>
-
-            <div className="badge-row">
-              <span className="chip">✔ Operadores licenciados SRIJ</span>
-              <span className="chip">✔ Análises independentes</span>
-              <span className="chip">✔ 18+ · Jogo responsável</span>
-            </div>
-
-            <div className="hero-actions">
-              <Link className="btn btn-primary" href="#casinos">
-                Ver ranking de casinos
-              </Link>
-              <Link className="btn btn-ghost" href="#como-avaliamos">
-                Como avaliamos
-              </Link>
+      <section className="lz-hero" aria-labelledby="hero-h">
+        <div className="lz-wrap">
+          <div className="lz-panel lz-hero-frame">
+            <div className="lz-hero-grid">
+              <header className="lz-hero-copy">
+                <span className="lz-eyebrow">Mercado legal · SRIJ · 2026</span>
+                <h1 id="hero-h" className="lz-hero-title">
+                  Casinos online em Portugal
+                </h1>
+                <p className="lz-hero-desc">
+                  Reunimos o essencial sobre operadores autorizados pelo SRIJ —
+                  promoções, levantamentos e jogo responsável — para que decida
+                  com a cabeça fria. Conteúdo apenas para maiores de 18 anos.
+                </p>
+                <div className="lz-hero-cta-row">
+                  <Link className="lz-btn lz-btn--primary lz-btn--cta" href="/avaliacao">
+                    Começar agora
+                  </Link>
+                </div>
+                <p className="lz-hero-note">
+                  Somos um meio informativo independente, não um operador de jogo.
+                </p>
+              </header>
+              <div className="lz-hero-visual">
+                <HeroArt />
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <aside className="hero-card">
-            <h3>Destaque da semana</h3>
-            <ul className="mini-list">
-              <li>🏆 {casinos[0].name} — {casinos[0].bonus}</li>
-              <li>⚡ Levantamentos em {casinos[0].payout}</li>
-              <li>📱 App móvel e MB WAY</li>
-              <li>🔒 Verificação de identidade segura</li>
-            </ul>
-            <Link
-              className="btn btn-gold btn-block mt-3"
-              href={`/ir/${casinos[0].id}`}
-            >
-              Ver oferta
-            </Link>
-            <p className="bonus-note center mt-2">
-              18+ · Aplicam-se termos e condições · Jogue com responsabilidade
+      {/* ---------------- VANTAGENS DA LICENÇA ---------------- */}
+      <section className="lz-ribbon" aria-labelledby="lic-h">
+        <div className="lz-wrap">
+          <header className="lz-head">
+            <h2 id="lic-h" className="lz-h2">
+              O que muda quando o casino tem licença portuguesa
+            </h2>
+            <p className="lz-sub">
+              A supervisão do SRIJ impõe regras claras: da publicidade ao
+              tratamento de reclamações, o enquadramento é outro face a sites
+              «cinzentos».
             </p>
-          </aside>
-        </div>
-      </section>
-
-      {/* ---------------- RANKING DE CASINOS ---------------- */}
-      <section id="casinos" className="section container">
-        <div className="section-head">
-          <span className="eyebrow">Ranking atualizado</span>
-          <h2>Os melhores casinos online deste mês</h2>
-          <p>
-            Lista ordenada pela nossa pontuação combinada de segurança, bónus,
-            velocidade de pagamento e experiência móvel.
-          </p>
-        </div>
-
-        <div className="grid">
-          {casinos.map((c, i) => (
-            <CasinoCard key={c.id} casino={c} rank={i + 1} />
-          ))}
-        </div>
-      </section>
-
-      {/* ---------------- COMO AVALIAMOS ---------------- */}
-      <section id="como-avaliamos" className="section container">
-        <div className="section-head">
-          <span className="eyebrow">Metodologia</span>
-          <h2>Como avaliamos cada casino</h2>
-          <p>
-            Quatro critérios objetivos, sempre aplicados da mesma forma a todos
-            os operadores.
-          </p>
-        </div>
-        <div className="grid grid-4">
-          {criteria.map((c) => (
-            <div className="card" key={c.title}>
-              <h3 style={{ fontSize: "1.1rem" }}>{c.title}</h3>
-              <p>{c.text}</p>
+          </header>
+          <div className="lz-panel">
+            <div className="lz-features" role="list">
+              {features.map((f) => (
+                <article className="lz-feature" role="listitem" key={f.title}>
+                  <div className="lz-feature__icon">
+                    <FeatureIcon name={f.icon} />
+                  </div>
+                  <h3 className="lz-feature__h">{f.title}</h3>
+                  <p className="lz-feature__p">{f.text}</p>
+                </article>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
-      {/* ---------------- BÓNUS ---------------- */}
-      <section id="bonus" className="section container">
-        <div className="section-head">
-          <span className="eyebrow">Ofertas de boas-vindas</span>
-          <h2>Bónus explicados de forma simples</h2>
-          <p>
-            Um bom bónus não é só o valor anunciado. Verificamos sempre o
-            requisito de aposta, o prazo e os jogos elegíveis.
-          </p>
-        </div>
-        <div className="grid grid-3">
-          <div className="card">
-            <h3 style={{ fontSize: "1.1rem" }}>Bónus de depósito</h3>
-            <p>
-              O casino iguala uma percentagem do seu primeiro depósito. Ideal
-              para ampliar o saldo inicial.
+      {/* ---------------- CHECKLIST ---------------- */}
+      <section className="lz-ribbon lz-ribbon--tint" aria-labelledby="chk-h">
+        <div className="lz-wrap">
+          <header className="lz-head">
+            <h2 id="chk-h" className="lz-h2">
+              Checklist antes de abrir conta
+            </h2>
+            <p className="lz-sub">
+              Síntese editorial — não substitui o regulador nem o contrato que
+              assina com o operador.
             </p>
-          </div>
-          <div className="card">
-            <h3 style={{ fontSize: "1.1rem" }}>Rodadas grátis</h3>
-            <p>
-              Giros sem custo em slots selecionadas. Confirme o valor por rodada
-              e os ganhos máximos.
-            </p>
-          </div>
-          <div className="card">
-            <h3 style={{ fontSize: "1.1rem" }}>Cashback &amp; VIP</h3>
-            <p>
-              Devolução de parte das perdas e recompensas por fidelidade para
-              jogadores regulares.
-            </p>
-          </div>
-        </div>
-        <div className="disclaimer mt-3">
-          Importante: todos os bónus estão sujeitos a termos e condições do
-          operador, incluindo requisitos de aposta. Leia sempre as regras antes
-          de aceitar uma oferta. 18+.
-        </div>
-      </section>
-
-      {/* ---------------- JOGOS ---------------- */}
-      <section id="jogos" className="section container">
-        <div className="section-head">
-          <span className="eyebrow">Catálogo</span>
-          <h2>Tipos de jogos que vai encontrar</h2>
-        </div>
-        <div className="grid grid-4">
-          {gameTypes.map((g) => (
-            <div className="card" key={g.id}>
-              <h3 style={{ fontSize: "1.1rem" }}>{g.title}</h3>
-              <p>{g.text}</p>
+          </header>
+          <div className="lz-panel">
+            <div className="lz-columns">
+              {checklist.map((c) => (
+                <p key={c.head}>
+                  <strong>{c.head}</strong> {c.body}
+                </p>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ---------------- PAGAMENTOS ---------------- */}
-      <section id="pagamentos" className="section container">
-        <div className="section-head">
-          <span className="eyebrow">Depósitos e levantamentos</span>
-          <h2>Métodos de pagamento populares em Portugal</h2>
-          <p>
-            Os operadores em destaque suportam os métodos mais usados por
-            jogadores portugueses, com processamento seguro.
-          </p>
-        </div>
-        <div className="badge-row">
-          {payments.map((p) => (
-            <span className="chip" key={p}>
-              💳 {p}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* ---------------- JOGO RESPONSÁVEL (resumo) ---------------- */}
-      <section className="section container">
-        <div className="card" style={{ borderColor: "var(--brand)" }}>
-          <span className="eyebrow">Antes de jogar</span>
-          <h2 style={{ fontSize: "1.6rem" }}>O jogo deve ser diversão, não um problema</h2>
-          <p>
-            Defina limites de tempo e de dinheiro, nunca jogue para recuperar
-            perdas e faça pausas regulares. Se sentir que o jogo deixou de ser um
-            passatempo, procure ajuda.
-          </p>
-          <Link className="btn btn-primary mt-2" href="/jogo-responsavel">
-            Saber mais sobre jogo responsável
-          </Link>
+          </div>
         </div>
       </section>
 
       {/* ---------------- FAQ ---------------- */}
-      <section id="faq" className="section container">
-        <div className="section-head">
-          <span className="eyebrow">Dúvidas comuns</span>
-          <h2>Perguntas frequentes</h2>
+      <section className="lz-ribbon" aria-labelledby="faq-h">
+        <div className="lz-wrap">
+          <header className="lz-head">
+            <h2 id="faq-h" className="lz-h2">
+              Dúvidas comuns sobre casino online em Portugal
+            </h2>
+            <p className="lz-sub">
+              Respostas em tom jornalístico para quem pesquisa{" "}
+              <strong>casino licenciado</strong>,{" "}
+              <strong>bónus de registo</strong> ou{" "}
+              <strong>slots legais</strong>. Este guia{" "}
+              <strong>não gere apostas nem carteira</strong> e{" "}
+              <strong>não promete lucros</strong>. Jogar com dinheiro real
+              implica perdas possíveis. <strong>Apenas 18+.</strong>
+            </p>
+          </header>
+          <div className="lz-panel">
+            <div className="lz-faq" role="region" aria-label="Perguntas frequentes">
+              {faq.map((item) => (
+                <details key={item.q}>
+                  <summary>{item.q}</summary>
+                  <div className="lz-faq__body">{item.a}</div>
+                </details>
+              ))}
+            </div>
+            <p className="lz-faq-foot">
+              Expressões como «top casino» mudam de significado conforme a
+              campanha da semana. Use a{" "}
+              <Link href="/avaliacao">nossa avaliação</Link> como roteiro e
+              confirme os valores no operador antes de jogar.
+            </p>
+          </div>
         </div>
-        {faq.map((item) => (
-          <details className="faq-item" key={item.q}>
-            <summary>
-              {item.q}
-              <span aria-hidden>+</span>
-            </summary>
-            <p>{item.a}</p>
-          </details>
-        ))}
+      </section>
+
+      {/* ---------------- HÁBITOS ---------------- */}
+      <section className="lz-ribbon" aria-labelledby="hab-h">
+        <div className="lz-wrap">
+          <header className="lz-head">
+            <h2 id="hab-h" className="lz-h2">
+              Quatro hábitos que o SRIJ também recomenda cultivar
+            </h2>
+            <p className="lz-sub">
+              Pequenos rituais reduzem a impulsividade — não substituem as
+              ferramentas oficiais de limite e exclusão.
+            </p>
+          </header>
+          <div className="lz-panel">
+            <div className="lz-mosaic" role="list">
+              {habits.map((h) => (
+                <article className="lz-tile" role="listitem" key={h.n}>
+                  <p className="lz-tile__n">{h.n}</p>
+                  <h3 className="lz-tile__h">{h.title}</h3>
+                  <p className="lz-tile__p">{h.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );

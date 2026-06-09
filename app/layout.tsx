@@ -1,32 +1,33 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { site } from "@/lib/site";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${site.domain}`),
   title: {
-    default: `${site.name} — ${site.tagline}`,
+    default: "Guia de casino online em Portugal",
     template: `%s · ${site.name}`,
   },
-  description: site.description,
+  description:
+    "Ajuda a perceber o mercado legal de casino em Portugal (SRIJ): comparar " +
+    "campanhas, métodos de pagamento e regras. 18+. Somos media, não operador.",
   keywords: [
-    "casino online",
-    "casinos Portugal",
-    "bónus de casino",
+    "casino online Portugal",
+    "casino licenciado SRIJ",
+    "bónus de registo",
+    "slots legais",
     "jogo responsável",
-    "slots",
-    "roleta",
   ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "pt_PT",
     siteName: site.name,
-    title: `${site.name} — ${site.tagline}`,
-    description: site.description,
+    title: "Guia de casino online em Portugal",
+    description:
+      "Comparar campanhas, métodos de pagamento e regras de casino legal em Portugal. 18+.",
     url: `https://${site.domain}`,
   },
   robots: { index: true, follow: true },
@@ -34,9 +35,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d1020",
+  themeColor: "#07060b",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -47,8 +49,20 @@ export default function RootLayout({
   return (
     <html lang="pt-PT">
       <body>
-        <Header />
-        <main>{children}</main>
+        <a href="#conteudo" className="lz-skip">
+          Saltar para o conteúdo
+        </a>
+        <div className="lzx-particles" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+          <i />
+          <i />
+          <i />
+          <i />
+          <i />
+        </div>
+        <main id="conteudo">{children}</main>
         <Footer />
         <CookieConsent />
       </body>

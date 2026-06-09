@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-// Nome do cookie/registo onde guardamos o consentimento.
 const STORAGE_KEY = "sortuga_consent_v1";
 const COOKIE_NAME = "sortuga_consent";
 const ONE_YEAR = 60 * 60 * 24 * 365;
@@ -20,7 +19,6 @@ function saveConsent(consent: Consent) {
   } catch {
     /* localStorage indisponível — seguimos só com o cookie */
   }
-  // Também gravamos um cookie de 1.ª parte (local, sem terceiros).
   document.cookie =
     `${COOKIE_NAME}=${encodeURIComponent(
       `${consent.analytics ? 1 : 0}${consent.marketing ? 1 : 0}`
@@ -35,8 +33,7 @@ export default function CookieConsent() {
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (!stored) setVisible(true);
+      if (!localStorage.getItem(STORAGE_KEY)) setVisible(true);
     } catch {
       setVisible(true);
     }
@@ -56,35 +53,29 @@ export default function CookieConsent() {
 
   return (
     <div
-      className="cookie"
+      className="lz-cookie"
       role="dialog"
       aria-live="polite"
       aria-label="Aviso de cookies"
     >
-      <h4>🍪 Nós valorizamos a sua privacidade</h4>
+      <h4>🍪 Respeitamos a sua privacidade</h4>
       <p>
-        Utilizamos cookies próprios para garantir o funcionamento do site e,
-        com o seu consentimento, para medir o tráfego e melhorar o conteúdo.
-        Pode aceitar tudo, recusar os opcionais ou personalizar as suas escolhas.
-        Consulte a nossa{" "}
-        <a href="/cookies" style={{ color: "var(--brand-2)" }}>
-          política de cookies
-        </a>
-        .
+        Usamos cookies próprios para o funcionamento do site e, com o seu
+        consentimento, para medir o tráfego e melhorar o conteúdo. Pode aceitar
+        tudo, recusar os opcionais ou personalizar. Saiba mais na{" "}
+        <a href="/cookies">política de cookies</a>.
       </p>
 
       {showPrefs && (
-        <div className="cookie-prefs">
-          <div className="cookie-row">
+        <div className="lz-cookie-prefs">
+          <div className="lz-cookie-row">
             <input type="checkbox" checked readOnly aria-label="Cookies necessários" />
             <div>
               <label>Necessários</label>
-              <small>
-                Essenciais para o funcionamento do site. Sempre ativos.
-              </small>
+              <small>Essenciais ao funcionamento do site. Sempre ativos.</small>
             </div>
           </div>
-          <div className="cookie-row">
+          <div className="lz-cookie-row">
             <input
               type="checkbox"
               checked={analytics}
@@ -96,7 +87,7 @@ export default function CookieConsent() {
               <small>Ajudam-nos a perceber como o site é utilizado.</small>
             </div>
           </div>
-          <div className="cookie-row">
+          <div className="lz-cookie-row">
             <input
               type="checkbox"
               checked={marketing}
@@ -111,17 +102,17 @@ export default function CookieConsent() {
         </div>
       )}
 
-      <div className="cookie-actions">
+      <div className="lz-cookie-actions">
         <button
           type="button"
-          className="btn btn-primary"
+          className="lz-btn lz-btn--primary"
           onClick={() => persist(true, true)}
         >
           Aceitar tudo
         </button>
         <button
           type="button"
-          className="btn btn-ghost"
+          className="lz-btn lz-btn--ghost"
           onClick={() => persist(false, false)}
         >
           Recusar opcionais
@@ -129,7 +120,7 @@ export default function CookieConsent() {
         {showPrefs ? (
           <button
             type="button"
-            className="btn btn-gold"
+            className="lz-btn lz-btn--ghost"
             onClick={() => persist(analytics, marketing)}
           >
             Guardar escolhas
@@ -137,7 +128,7 @@ export default function CookieConsent() {
         ) : (
           <button
             type="button"
-            className="btn btn-ghost"
+            className="lz-btn lz-btn--ghost"
             onClick={() => setShowPrefs(true)}
           >
             Personalizar
