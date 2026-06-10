@@ -4,8 +4,8 @@
 export const site = {
   name: "Sortuga",
   tagline: "Guia independente de casinos online em Portugal",
-  domain: "sortuga.pt",
-  email: "ola@sortuga.pt",
+  domain: "portugam.live",
+  email: "ola@portugam.live",
   description:
     "A Sortuga compara casinos online licenciados em Portugal, explica bónus, " +
     "métodos de pagamento e jogo responsável de forma clara e honesta.",
