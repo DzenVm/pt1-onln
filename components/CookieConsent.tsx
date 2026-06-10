@@ -61,8 +61,7 @@ export default function CookieConsent() {
       <h4>🍪 Respeitamos a sua privacidade</h4>
       <p>
         Usamos cookies próprios para o funcionamento do site e, com o seu
-        consentimento, para medir o tráfego e melhorar o conteúdo. Pode aceitar
-        tudo, recusar os opcionais ou personalizar. Saiba mais na{" "}
+        consentimento, para medir o tráfego. Saiba mais na{" "}
         <a href="/cookies">política de cookies</a>.
       </p>
 
