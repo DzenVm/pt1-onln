@@ -13,16 +13,12 @@ export const organizationLd = {
   logo: `${base}/icon.svg`,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "ul. Przemiarki 23/8",
-    addressLocality: "Kraków",
-    postalCode: "30-384",
-    addressCountry: "PL",
+    streetAddress: company.street,
+    addressLocality: company.locality,
+    postalCode: company.postalCode,
+    addressCountry: company.country,
   },
-  identifier: [
-    { "@type": "PropertyValue", name: "KRS", value: company.krs },
-    { "@type": "PropertyValue", name: "NIP", value: company.nip },
-    { "@type": "PropertyValue", name: "REGON", value: company.regon },
-  ],
+  identifier: [{ "@type": "PropertyValue", name: "IČO", value: company.ico }],
 };
 
 export const websiteLd = {

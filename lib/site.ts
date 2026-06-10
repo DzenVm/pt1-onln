@@ -14,11 +14,13 @@ export const site = {
 
 // Informação legal da entidade responsável pelo site.
 export const company = {
-  legalName: "EKIPAZH EU sp. z o.o.",
-  fullName: "EKIPAZH EU SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
-  register: "Rejestr Przedsiębiorców (KRS)",
-  krs: "0001022762",
-  nip: "6762637696",
-  regon: "524615411",
-  address: "ul. Przemiarki 23/8, 30-384 Kraków, Polónia",
+  legalName: "DOLA21 s.r.o.",
+  fullName: "DOLA21 s.r.o.",
+  register: "Obchodní rejstřík (registo comercial checo)",
+  ico: "04644913",
+  address: "Šafaříkova 139, Vysoké Mýto-Město, 566 01 Vysoké Mýto, República Checa",
+  street: "Šafaříkova 139",
+  locality: "Vysoké Mýto",
+  postalCode: "566 01",
+  country: "CZ",
 } as const;

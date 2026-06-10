@@ -48,13 +48,7 @@ export default function Termos() {
           <strong>Registo:</strong> {company.register}
         </li>
         <li>
-          <strong>KRS:</strong> {company.krs}
-        </li>
-        <li>
-          <strong>NIP:</strong> {company.nip}
-        </li>
-        <li>
-          <strong>REGON:</strong> {company.regon}
+          <strong>IČO (n.º de identificação):</strong> {company.ico}
         </li>
         <li>
           <strong>Sede:</strong> {company.address}

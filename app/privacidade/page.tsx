@@ -19,8 +19,7 @@ export default function Privacidade() {
       <h2>Responsável pelo tratamento</h2>
       <p>
         O responsável pelo tratamento dos dados é {company.fullName}, com sede em{" "}
-        {company.address} (KRS {company.krs}, NIP {company.nip}, REGON{" "}
-        {company.regon}).
+        {company.address} (IČO {company.ico}).
       </p>
       <h2>Que dados recolhemos</h2>
       <p>

@@ -84,8 +84,7 @@ export default function Footer() {
         <div className="lz-foot__legal">
           <p>
             © {year} — {site.name}, operado por {company.legalName}.{" "}
-            {company.address}. KRS {company.krs} · NIP {company.nip} · REGON{" "}
-            {company.regon}. Todos os direitos reservados.
+            {company.address}. IČO {company.ico}. Todos os direitos reservados.
           </p>
           <nav className="lz-foot__links" aria-label="Ligações do rodapé">
             <Link href="/sobre">Sobre</Link>
