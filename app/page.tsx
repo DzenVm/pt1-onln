@@ -3,6 +3,7 @@ import Image from "next/image";
 import heroImg from "@/public/hero-casino.png";
 import FeatureIcon from "@/components/FeatureIcon";
 import JsonLd from "@/components/JsonLd";
+import KeepParamsLink from "@/components/KeepParamsLink";
 import { faqLd } from "@/lib/seo";
 import { features, checklist, faq, habits } from "@/lib/casinos";
 
@@ -26,9 +27,9 @@ export default function Home() {
                   com a cabeça fria. Conteúdo apenas para maiores de 18 anos.
                 </p>
                 <div className="lz-hero-cta-row">
-                  <Link className="lz-btn lz-btn--primary lz-btn--cta" href="/avaliacao">
+                  <KeepParamsLink className="lz-btn lz-btn--primary lz-btn--cta" href="/avaliacao">
                     Começar agora
-                  </Link>
+                  </KeepParamsLink>
                 </div>
                 <p className="lz-hero-note">
                   Somos um meio informativo independente, não um operador de jogo.
@@ -133,8 +134,8 @@ export default function Home() {
             <p className="lz-faq-foot">
               Expressões como «top casino» mudam de significado conforme a
               campanha da semana. Use a{" "}
-              <Link href="/avaliacao">nossa avaliação</Link> como roteiro e
-              confirme os valores no operador antes de jogar.
+              <KeepParamsLink href="/avaliacao">nossa avaliação</KeepParamsLink>{" "}
+              como roteiro e confirme os valores no operador antes de jogar.
             </p>
           </div>
         </div>

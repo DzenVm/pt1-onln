@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { operators } from "@/lib/casinos";
 import JsonLd from "@/components/JsonLd";
+import KeepParamsLink from "@/components/KeepParamsLink";
 import { breadcrumbLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -87,9 +88,12 @@ export default function Avaliacao() {
                     </tbody>
                   </table>
                   <p className="lz-terms">{o.bonusNote} Aplicam-se termos. 18+.</p>
-                  <Link className="lz-btn lz-btn--primary lz-btn--block" href={`/ponte/${o.slug}`}>
+                  <KeepParamsLink
+                    className="lz-btn lz-btn--primary lz-btn--block"
+                    href={`/ponte/${o.slug}`}
+                  >
                     Ver oferta {o.name}
-                  </Link>
+                  </KeepParamsLink>
                 </div>
               </div>
             </article>
