@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: `Redirecionamento editorial — ${name}`,
     description:
       "Este domínio não aloja jogos. O botão abre o site oficial do operador no seu browser.",
-    // Página de transição: nunca indexada (boa prática e alinhado com Google Ads).
-    robots: { index: false, follow: false },
+    // Página indexável: o caminho de transição deve ser visível ao crawler,
+    // tal como o resto do site (herda robots index,follow do layout).
     alternates: { canonical: `/ponte/${slug}` },
   };
 }
@@ -62,7 +62,7 @@ export default async function Ponte({ params }: Params) {
             <a
               className="lz-btn lz-btn--primary lz-btn--cta"
               href={op.url}
-              rel="nofollow noopener noreferrer"
+              rel="sponsored noopener noreferrer"
               target="_blank"
             >
               Abrir {op.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
